@@ -25,10 +25,14 @@ source /etc/birdnet/birdnet.conf
 
 install_birdnet() {
   cd ~/BirdNET-Pi || exit 1
-  echo "Establishing a python virtual environment"
-  python3 -m venv birdnet
+  echo "Establishing a Python virtual environment"
+  python3 -m venv birdnet 
   source ./birdnet/bin/activate
-  pip3 install -U -r $HOME/BirdNET-Pi/requirements.txt
+
+  # Iterate through requirements.txt for installation
+  while IFS= read -r package; do
+      pip3 install -U $package || echo "Installation of $package failed. Continuing..."
+  done < "$HOME/BirdNET-Pi/requirements.txt"
 }
 
 [ -d ${RECS_DIR} ] || mkdir -p ${RECS_DIR} &> /dev/null

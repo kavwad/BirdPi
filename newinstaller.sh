@@ -34,7 +34,7 @@ if [[ ! -z $PACKAGES_MISSING ]] ; then
 fi
 
 branch=main
-git clone -b $branch --depth=1 https://github.com/pddpauw/BirdPi.git ${HOME}/BirdNET-Pi &&
+git clone -b $branch --depth=1 https://github.com/kavwad/BirdPi.git ${HOME}/BirdNET-Pi &&
 
 $HOME/BirdNET-Pi/scripts/install_birdnet.sh
 sudo chmod +x $HOME/BirdNET-Pi/scripts/changes_pi_5.sh

@@ -2,6 +2,7 @@ pip
 wheel
 setuptools
 scipy==1.12
+pyarrow
 tflite_runtime
 colorama==0.4.4
 librosa
